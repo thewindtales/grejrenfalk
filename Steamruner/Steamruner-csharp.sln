@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 
 Project("{26F85CEE-ADC5-51AA-63E9-AD150785BA9F}") = "Steamruner", "Assembly-CSharp-firstpass-vs.csproj", "{D01392DD-46B9-7375-C1C3-9F5413510D6F}"
 EndProject
+Project("{26F85CEE-ADC5-51AA-63E9-AD150785BA9F}") = "Steamruner", "Assembly-CSharp-vs.csproj", "{013F6D3F-8DA2-7E04-F83E-D47B1C2A4FB3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,11 +15,15 @@ Global
 		{D01392DD-46B9-7375-C1C3-9F5413510D6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D01392DD-46B9-7375-C1C3-9F5413510D6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D01392DD-46B9-7375-C1C3-9F5413510D6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{013F6D3F-8DA2-7E04-F83E-D47B1C2A4FB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{013F6D3F-8DA2-7E04-F83E-D47B1C2A4FB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{013F6D3F-8DA2-7E04-F83E-D47B1C2A4FB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{013F6D3F-8DA2-7E04-F83E-D47B1C2A4FB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-			GlobalSection(MonoDevelopProperties) = preSolution
+						GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
