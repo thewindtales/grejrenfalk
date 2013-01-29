@@ -1,0 +1,30 @@
+Initialize engine version: 4.0.0f7
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 9.0c [nvd3dumx.dll 8.17.13.142]
+    Renderer: NVIDIA GeForce GTX 560 Ti  
+    Vendor:   NVIDIA
+    VRAM:     978 MB (via DXGI)
+    Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=0 DF24=0 INTZ=1 RAWZ=0 NULL=1 RESZ=0 SlowINTZ=0
+Begin MonoManager ReloadAssembly
+Platform assembly: I:\Wind\grejrenfalk\Steamruner\Biulded\Menu_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading I:\Wind\grejrenfalk\Steamruner\Biulded\Menu_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: I:\Wind\grejrenfalk\Steamruner\Biulded\Menu_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading I:\Wind\grejrenfalk\Steamruner\Biulded\Menu_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: I:\Wind\grejrenfalk\Steamruner\Biulded\Menu_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading I:\Wind\grejrenfalk\Steamruner\Biulded\Menu_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: I:\Wind\grejrenfalk\Steamruner\Biulded\Menu_Data\Managed\Assembly-UnityScript-firstpass.dll (this message is harmless)
+Loading I:\Wind\grejrenfalk\Steamruner\Biulded\Menu_Data\Managed\Assembly-UnityScript-firstpass.dll into Unity Child Domain
+Platform assembly: I:\Wind\grejrenfalk\Steamruner\Biulded\Menu_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading I:\Wind\grejrenfalk\Steamruner\Biulded\Menu_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+- Completed reload, in  0.041 seconds
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+New game selected
+ 
+(Filename: C:/BuildAgent/work/812c4f5049264fad/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 43)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 107. Operation took 1.412994 ms.
