@@ -4,6 +4,8 @@
 
 *.pydevproject
 .project
+.js
+.cs
 .metadata
 bin/
 tmp/
