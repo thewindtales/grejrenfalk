@@ -49,7 +49,7 @@ public class Char_motor: MonoBehaviour {
 	void Gravity()
 	{
 		Vector3 down = transform.TransformDirection(Vector3.down);
-        if (!Physics.Raycast(transform.position, down, 6))
+        if (!Physics.Raycast(transform.position, down, 1))
 		{
 			gravi=Global.Gravitation;
 			move.y -=1*gravi;
