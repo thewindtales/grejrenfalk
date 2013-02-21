@@ -4,6 +4,7 @@ using System.Collections;
 public class Player_control : MonoBehaviour 
 {
 	public float movein;
+	private bool Jump;
 
 	// Use this for initialization
 	void Start () 
@@ -19,7 +20,15 @@ public class Player_control : MonoBehaviour
 		}
 		else movein=0;
 		
-		Char_motophis other=gameObject.GetComponent<Char_motophis>();
-		other.in_walk=movein;
+		if(Input.GetButtonDown ("Jump"))
+		{
+			Jump=true;
+		}
+		else
+			Jump = false;
+		
+		Char_motophis motor=gameObject.GetComponent<Char_motophis>();
+		motor.in_walk=movein;
+		motor.jump=Jump;
 	}
 }
