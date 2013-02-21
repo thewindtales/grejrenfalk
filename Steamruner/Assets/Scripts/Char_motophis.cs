@@ -10,17 +10,15 @@ public class Char_motophis : MonoBehaviour
 	public int JumpHeight = 2;// высота прыжка, пока не используется
 	public bool jump;
 	public float in_walk;
-	public bool OnGround;
+	
 	//анимации
 	public Animation Idle;
 	public Animation Walk;
 	public Animation Jump;
 	public Transform Self;
 	
-	public Vector3 DebuRigid;
-	
 	private Vector3 JumpVect;
-	
+	private bool OnGround;
 	
 	
 	
@@ -41,7 +39,6 @@ public class Char_motophis : MonoBehaviour
 			Walking ();
 		if(jump&&OnGround)
 			Jumping ();
-		DebuRigid=rigidbody.velocity;
 	}
 //	void 
 	 void OnCollisionStay(Collision collision) 

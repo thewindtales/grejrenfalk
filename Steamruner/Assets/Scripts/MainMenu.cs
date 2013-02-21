@@ -3,6 +3,7 @@ using System.Collections;
 
 public class MainMenu : MonoBehaviour 
 {
+	public AudioClip Music;
 	public Texture2D NewGame;
 	public Texture2D Options;
 	public Texture2D Exit;
@@ -33,16 +34,21 @@ public class MainMenu : MonoBehaviour
 		
 		
 	}
+	
 
 	// Use this for initialization
-	void Start () {
-	
+	void Start () 
+	{
+		
 	}
+	
 	
 	// Update is called once per frame
-	void Update () {
-	
+	void Update () 
+	{
+		
 	}
+	
 	void CursorTrack()
 	{
 		Vector3 MousePos = Input.mousePosition;
