@@ -12,9 +12,9 @@ public class Char_motophis : MonoBehaviour
 	public float in_walk;
 	
 	//анимации
-	public Animation Idle;
-	public Animation Walk;
-	public Animation Jump;
+	public AnimationClip Idle;
+	public AnimationClip Walk;
+	public AnimationClip Jump;
 	public Transform Self;
 	
 	private Vector3 JumpVect;
@@ -28,12 +28,14 @@ public class Char_motophis : MonoBehaviour
 	{
 		Self=transform;
 		rigidbody.freezeRotation=true;
+		animation.AddClip (Idle,"Idle");
+		animation.AddClip (Walk,"Walk");
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		
+		animation.CrossFade ("Idle");
 		
 		if(in_walk!=0)
 			Walking ();
@@ -52,15 +54,18 @@ public class Char_motophis : MonoBehaviour
 	
 	void Walking()
 	{
+		animation.CrossFade ("Walk");
 		if(in_walk>0)
 		{
 			Vector3 forw =new Vector3 (0,rigidbody.velocity.y,in_walk*Speed);
 			rigidbody.velocity=forw;
+			animation.CrossFade ("Walk");
 		}
 		if(in_walk<0)
 		{
 			Vector3 back =new Vector3 (0,rigidbody.velocity.y,in_walk*Speed);
 			rigidbody.velocity= back;
+			//animation.CrossFadeQueued ("Walk");
 		}
 	}
 	
