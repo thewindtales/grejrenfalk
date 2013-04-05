@@ -6,14 +6,11 @@ using System.Collections;
 public class Char_motophis : MonoBehaviour 
 {
 	public int Speed = 10; //скорость персонажа
-	public int JumpHeight = 20;// высота прыжка, пока не используется
+	public int JumpHeight = 20;// высота прыжка
 	public bool jump;
 	public float in_walk;
 	
-	//анимации
-	public AnimationClip Idle;
-	public AnimationClip Walk;
-	public AnimationClip Jump;
+
 	public Transform Self;
 	public bool Left = false;
 	
@@ -28,21 +25,17 @@ public class Char_motophis : MonoBehaviour
 	{
 		Self=transform;
 		rigidbody.freezeRotation=true;//Нечего падать на бок
-		animation.AddClip (Idle,"Idle");
-		animation.AddClip (Walk,"Walk");
 	}
 	
 	// Update is called once per frame
 	void Update () 
-	{
-		animation.CrossFade ("Idle");
-		
+	{		
 		if(in_walk!=0)
 			Walking ();
 		if(jump&&OnGround)
 			Jumping ();
 	}
-//	void 
+
 	 void OnCollisionStay(Collision collision) 
 	{
 		OnGround=true;
@@ -54,7 +47,6 @@ public class Char_motophis : MonoBehaviour
 	
 	void Walking()
 	{
-		animation.CrossFade ("Walk");
 		if(in_walk>0)
 		{
 			if(Left)
@@ -65,7 +57,6 @@ public class Char_motophis : MonoBehaviour
 			}
 			Vector3 forw =new Vector3 (0,rigidbody.velocity.y,in_walk*Speed);
 			rigidbody.velocity=forw;
-			animation.CrossFade ("Walk");
 		}
 		if(in_walk<0)
 		{

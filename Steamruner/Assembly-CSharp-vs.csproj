@@ -44,6 +44,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Animatrix.cs" />
      <Compile Include="Assets\Scripts\Camera_follow.cs" />
      <Compile Include="Assets\Scripts\Char_motophis.cs" />
      <Compile Include="Assets\Scripts\Char_motor.cs" />

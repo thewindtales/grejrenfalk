@@ -11,16 +11,16 @@ public class Stat : MonoBehaviour
 	public int RectH=20;
 	public int RectW=100;
 	public int rech = 10;
-	
+
 	public bool recharge;
-	
+
 
 	// Use this for initialization
 	void Start () 
 	{
-	
+
 	}
-	
+
 	// Update is called once per frame
 	void Update () 
 	{
@@ -38,7 +38,7 @@ public class Stat : MonoBehaviour
 			CurHealth=MaxHealth;
 		}
 	}
-	
+
 	void HealthInjury(int val)
 	{
 		CurHealth-= val;
@@ -53,26 +53,26 @@ public class Stat : MonoBehaviour
 			CurEnergy=MaxEnergy;
 		}
 	}
-	
+
 	void EnergyLow(int val)
 	{
 		CurEnergy-=val;
 		if(CurEnergy<=0)
 			CurEnergy=0;
 	}
-	
+
 	void Ability()
 	{
 		recharge=false;
 		EnergyLow (20);
-		
-		
-		
+
+
+
 	}
 	void Death(){}
-	
-	
-	
+
+
+
 	void OnGUI()
 	{
 		GUI.Label(new Rect(0,0,RectW,RectH),"Health " + CurHealth+"/"+MaxHealth,InGame);
