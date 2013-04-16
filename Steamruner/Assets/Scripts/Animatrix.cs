@@ -7,6 +7,14 @@ using System.Collections;
 public class Animatrix : MonoBehaviour 
 {
 	private Animator anim;
+	
+	//публятня
+	
+	public bool Jump=false;
+	public bool Sprint = false;
+	public bool Punch = false;
+	public float InWalk = 0;
+	
 
 	void Start () 
 	{
@@ -16,8 +24,7 @@ public class Animatrix : MonoBehaviour
 
 	void Update () 
 	{
-		float h= Input.GetAxis ("Horizontal");
-		if (h!=0)
+		if (InWalk!=0)
 		{
 			anim.SetBool("Walk",true);
 		}
@@ -25,13 +32,25 @@ public class Animatrix : MonoBehaviour
 		{
 			anim.SetBool ("Walk", false);
 		}
-		if(Input.GetButton("Shift"))
+		if(Sprint)
 		{
 			anim.SetBool ("Run",true);
 		}
 		else
 		{
 			anim.SetBool ("Run",false);
+		}
+		if(Jump)
+		{anim.SetBool ("Jump",true);}
+		else
+		{
+			anim.SetBool("Jump",false);
+		}
+		if(Punch)
+		{anim.SetBool ("Punch",true);}
+		else
+		{
+			anim.SetBool ("Punch",false);
 		}
 	}
 }

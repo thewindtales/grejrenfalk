@@ -5,18 +5,13 @@ using System.Collections;
 
 public class Char_motophis : MonoBehaviour 
 {
-	public int Speed = 10; //скорость персонажа
-	public int JumpHeight = 20;// высота прыжка
-	public bool jump;
+
 	public float in_walk;
 	
 
 	public Transform Self;
 	public bool Left = false;
-	
-	private Vector3 JumpVect;
-	private bool OnGround;
-	
+
 	
 	
 
@@ -27,23 +22,12 @@ public class Char_motophis : MonoBehaviour
 		rigidbody.freezeRotation=true;//Нечего падать на бок
 	}
 	
-	// Update is called once per frame
 	void Update () 
 	{		
 		if(in_walk!=0)
 			Walking ();
-		if(jump&&OnGround)
-			Jumping ();
 	}
 
-	 void OnCollisionStay(Collision collision) 
-	{
-		OnGround=true;
-	}
-	 void OnCollisionExit(Collision collision) 
-	{
-        OnGround=false;
-    }
 	
 	void Walking()
 	{
@@ -55,7 +39,7 @@ public class Char_motophis : MonoBehaviour
 				Left=false;
 				Self.rotation=Quaternion.Euler (new Vector3(0,0,0));
 			}
-			Vector3 forw =new Vector3 (0,rigidbody.velocity.y,in_walk*Speed);
+			Vector3 forw =new Vector3 (0,rigidbody.velocity.y,in_walk);
 			rigidbody.velocity=forw;
 		}
 		if(in_walk<0)
@@ -65,14 +49,9 @@ public class Char_motophis : MonoBehaviour
 				Left=true;
 				Self.rotation=Quaternion.Euler(new Vector3(0,180,0));
 			}
-			Vector3 back =new Vector3 (0,rigidbody.velocity.y,in_walk*Speed);
+			Vector3 back =new Vector3 (0,rigidbody.velocity.y,in_walk);
 			rigidbody.velocity= back;
 		}
 	}
 	
-	void Jumping()
-	{
-		JumpVect =new Vector3(rigidbody.velocity.x,JumpHeight,rigidbody.velocity.z);
-		rigidbody.velocity= JumpVect;
-	}
 }

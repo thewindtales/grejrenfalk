@@ -4,8 +4,11 @@ using System.Collections;
 public class Player_control : MonoBehaviour 
 {
 	public float movein;
-	private bool Jump;
+	private bool _Jump;
+	private bool _Sprint;
+	private bool _Punch;
 	private Transform self;
+	
 
 	// Use this for initialization
 	void Start () 
@@ -21,14 +24,40 @@ public class Player_control : MonoBehaviour
 		}
 		else movein=0;
 		
-		if(Input.GetButtonDown ("Jump"))
+		
+		//Прыжок
+		if(Input.GetButton ("Jump"))
 		{
-			Jump=true;
+			_Jump = true;
+		}
+		else _Jump=false;
+		
+		//Спринт
+		if(Input.GetButton("Shift"))
+		{
+			_Sprint=true;
 		}
 		else
-			Jump = false;
+		_Sprint=false;
+		
+		//Удар
+		if(Input.GetButton("Fire1"))
+		{
+			_Punch=true;
+		}
+		else _Punch=false;
+		
+		
+		
+		
 		Char_motophis motor = self.GetComponent<Char_motophis>();
 		motor.in_walk=movein;
-		motor.jump=Jump;
+		
+		Animatrix InAnim = self.GetComponent<Animatrix>();
+		InAnim.InWalk=movein;
+		InAnim.Sprint=_Sprint;
+		InAnim.Jump=_Jump;
+		InAnim.Punch=_Punch;
+		
 	}
 }
