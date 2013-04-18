@@ -8,6 +8,7 @@ public class Player_control : MonoBehaviour
 	private bool _Sprint;
 	private bool _Punch;
 	private Transform self;
+	private Animator animix;
 	
 
 	// Use this for initialization
