@@ -13,22 +13,22 @@ public class Stat : MonoBehaviour
 	public int rech = 10;
 
 	public bool recharge;
+	
+	public Transform Self;
+	
+	public GameObject RagDoll;
 
 
-	// Use this for initialization
+
 	void Start () 
 	{
-
+		Self=transform;
 	}
 
-	// Update is called once per frame
+
 	void Update () 
 	{
-		if(Input.GetKeyDown (KeyCode.E))
-		{
-			if(recharge)
-				Ability ();
-		}
+		
 	}
 	void HealthUp(int val)
 	{
@@ -39,11 +39,14 @@ public class Stat : MonoBehaviour
 		}
 	}
 
-	void HealthInjury(int val)
+	public void HealthInjury(int val)
 	{
 		CurHealth-= val;
 		if(CurHealth<=0)
+		{
+			CurHealth=0;
 			Death();
+		}
 	}
 	void EnergyUp (int val)
 	{
@@ -69,13 +72,10 @@ public class Stat : MonoBehaviour
 
 
 	}
-	void Death(){}
-
-
-
-	void OnGUI()
+	void Death()
 	{
-		GUI.Label(new Rect(0,0,RectW,RectH),"Health " + CurHealth+"/"+MaxHealth,InGame);
-		GUI.Label(new Rect(0,RectH,RectW,RectH),"Energy " + CurEnergy+"/"+MaxEnergy,InGame);
+		Debug.Log (Self.gameObject.name + "Умер");
+		Instantiate (RagDoll,Self.position,Self.rotation);
+		Destroy(Self.gameObject);
 	}
 }

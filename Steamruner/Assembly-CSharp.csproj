@@ -44,6 +44,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\AI.cs" />
      <Compile Include="Assets\Scripts\Animatrix.cs" />
      <Compile Include="Assets\Scripts\Camera_follow.cs" />
      <Compile Include="Assets\Scripts\Char_motophis.cs" />
@@ -51,6 +52,7 @@
      <Compile Include="Assets\Scripts\Global.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\Player_control.cs" />
+     <Compile Include="Assets\Scripts\Player_stat.cs" />
      <Compile Include="Assets\Scripts\Stat.cs" />
      <Compile Include="Assets\Scripts\pincher.cs" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />

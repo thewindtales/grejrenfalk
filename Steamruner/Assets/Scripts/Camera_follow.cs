@@ -29,8 +29,9 @@ public class Camera_follow : MonoBehaviour
 				Self.rotation=Quaternion.Slerp (Self.rotation,Rot,Time.deltaTime*Damping);
 			}
 			else Self.LookAt (player);
+			
+			cam_pos=new Vector3(Range,Height,0);
+			transform.position=player.position+cam_pos;
 		}
-		cam_pos=new Vector3(Range,Height,0);
-		transform.position=player.position+cam_pos;
 	}
 }

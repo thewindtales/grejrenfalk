@@ -7,7 +7,7 @@ public class Player_control : MonoBehaviour
 	private bool _Jump;
 	private bool _Sprint;
 	private bool _Punch;
-	private Transform self;
+	public Transform self;
 	private Animator animix;
 	
 
@@ -49,10 +49,17 @@ public class Player_control : MonoBehaviour
 		else _Punch=false;
 		
 		
+		if(Input.GetButton ("PickUp"))
+		{
+			Player_stat Stat = self.GetComponent<Player_stat>();
+			Stat.PickUp();
+		}
+		if(Input.GetButton ("Throw"))
+		{
+			Player_stat Stat = self.GetComponent<Player_stat>();
+			Stat.Throw();
+		}	
 		
-		
-		Char_motophis motor = self.GetComponent<Char_motophis>();
-		motor.in_walk=movein;
 		
 		Animatrix InAnim = self.GetComponent<Animatrix>();
 		InAnim.InWalk=movein;
