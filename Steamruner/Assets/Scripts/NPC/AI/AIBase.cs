@@ -8,7 +8,7 @@ public abstract class AIBase
 {
 	public enum DecisionsWeight
 	{
-		AIDEC_UNDEFINED,
+		AIDEC_UNDEFINED = -1,
 		
 		//Idle decisions
 		AIDEC_IDLE_STAND,
@@ -19,7 +19,10 @@ public abstract class AIBase
 		
 		//Movement decisions
 		AIDEC_MOVEMENT_WALK,
-		AIDEC_MOVEMENT_SPRINT
+		AIDEC_MOVEMENT_SPRINT,
+		AIDEC_MOVEMENT_JUMP,
+		
+		AIDEC_COUNT
 	}
 	
 	public struct DecisionWeightPair

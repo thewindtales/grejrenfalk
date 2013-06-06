@@ -23,6 +23,7 @@ public abstract class NPCPawnBase
 	protected AIBase m_Brain;
 	protected GameObject m_PawnObject;
 	protected NPCBaseStates m_CurrentState;
+	protected AnimationManager m_AnimationManager;
 	
 	public abstract void Initialize();
 	public abstract void Update();
