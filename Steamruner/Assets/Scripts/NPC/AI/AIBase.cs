@@ -73,4 +73,9 @@ public abstract class AIBase
 		}
 		return DecisionsWeight.AIDEC_UNDEFINED;
 	}
+	
+	public void ForceDecision()
+	{
+		m_Neurons.NextDecisionTime = 0.1f;
+	}
 }

@@ -17,6 +17,7 @@ public abstract class NPCPawnBase
 		public int Health;
 		public int Energy;
 		public int AgroDistance;
+		public int AttackDistance;
 		//TODO: add more characteristics here
 	}
 	
@@ -35,5 +36,10 @@ public abstract class NPCPawnBase
 	public void SetCurrentState( NPCBaseStates state )
 	{
 		m_CurrentState = state;
+	}
+	
+	public float GetDistanceBetweenPlayerAndPawn()
+	{
+		return Vector3.Distance( m_PlayerObject.transform.position, m_PawnObject.transform.position );
 	}
 }

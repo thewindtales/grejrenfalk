@@ -6,7 +6,7 @@ using NPCState = NPCPawnBase.NPCBaseStates;
 
 public class AIMadMen : AIBase
 {
-	private const int k_DecisionTime = 1;
+	private const int k_DecisionTime = 2;
 	
 	public override void Initialize()
 	{
@@ -25,11 +25,11 @@ public class AIMadMen : AIBase
 	
 	public override DecisionsWeight MakeDecision( NPCState currentPawnState )
 	{
-	
 		m_Neurons.NextDecisionTime -= Time.deltaTime;
 		if( m_Neurons.NextDecisionTime <= 0 )
 		{
 			m_Neurons.NextDecisionTime = k_DecisionTime;
+			
 			switch( currentPawnState )
 			{
 			case NPCState.NPCS_IDLE:
