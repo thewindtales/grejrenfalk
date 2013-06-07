@@ -16,16 +16,24 @@ public abstract class NPCPawnBase
 	{
 		public int Health;
 		public int Energy;
+		public int AgroDistance;
 		//TODO: add more characteristics here
 	}
 	
 	protected NPCParameters m_Parameters;
 	protected AIBase m_Brain;
 	protected GameObject m_PawnObject;
+	protected GameObject m_PlayerObject;
 	protected NPCBaseStates m_CurrentState;
 	protected AnimationManager m_AnimationManager;
 	
 	public abstract void Initialize();
 	public abstract void Update();
 	public abstract void Drop();
+	
+	//Functions that all children used
+	public void SetCurrentState( NPCBaseStates state )
+	{
+		m_CurrentState = state;
+	}
 }

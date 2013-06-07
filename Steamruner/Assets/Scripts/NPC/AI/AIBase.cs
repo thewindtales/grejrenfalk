@@ -25,6 +25,12 @@ public abstract class AIBase
 		AIDEC_COUNT
 	}
 	
+	public struct NPCNeurons
+	{
+		public float NextDecisionTime;
+		public float DecisionSpeedIncreaser; 
+	}
+	
 	public struct DecisionWeightPair
 	{
 		public DecisionWeightPair( DecisionsWeight dec, int weig )
@@ -38,8 +44,7 @@ public abstract class AIBase
 	
 	protected List<DecisionWeightPair> m_DecisionWeightAttack;
 	protected List<DecisionWeightPair> m_DecisionWeightMovement;
-	protected float m_iNextDecisionTime;
-	protected float m_fDecisionSpeedIncreaser;
+	protected NPCNeurons m_Neurons;
 	
 	// Abstract
 	public abstract void Initialize();
