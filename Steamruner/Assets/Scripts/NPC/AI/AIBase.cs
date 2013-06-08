@@ -14,6 +14,7 @@ public abstract class AIBase
 		AIDEC_IDLE_STAND,
 		
 		//Attack decisions
+		AIDEC_ATTACK_STANCE,
 		AIDEC_ATTACK_ARMKICK,
 		AIDEC_ATTACK_LEGKICK,
 		
@@ -45,6 +46,7 @@ public abstract class AIBase
 	protected List<DecisionWeightPair> m_DecisionWeightAttack;
 	protected List<DecisionWeightPair> m_DecisionWeightMovement;
 	protected NPCNeurons m_Neurons;
+	protected bool m_ForceDecision;
 	
 	// Abstract
 	public abstract void Initialize();
@@ -76,6 +78,6 @@ public abstract class AIBase
 	
 	public void ForceDecision()
 	{
-		m_Neurons.NextDecisionTime = 0.1f;
+		m_ForceDecision = true;
 	}
 }

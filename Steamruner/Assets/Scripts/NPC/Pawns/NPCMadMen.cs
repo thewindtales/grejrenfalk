@@ -21,7 +21,7 @@ public class NPCMadMen : NPCPawnBase
 		//Parameters
 		m_Parameters.Health = 100;
 		m_Parameters.Energy = 100;
-		m_Parameters.AgroDistance = 20;
+		m_Parameters.AgroDistance = 40;
 		m_Parameters.AttackDistance = 5;
 		
 		//Animation
@@ -29,20 +29,21 @@ public class NPCMadMen : NPCPawnBase
 		Dictionary<AIBase.DecisionsWeight, string> npcAnimations = new Dictionary<AIBase.DecisionsWeight, string>()
 		{
 			{ AIBase.DecisionsWeight.AIDEC_IDLE_STAND, "Idle" },
+			{ AIBase.DecisionsWeight.AIDEC_ATTACK_STANCE, "Stance" },
 			{ AIBase.DecisionsWeight.AIDEC_ATTACK_ARMKICK, "PunchHandLeft" },
 			{ AIBase.DecisionsWeight.AIDEC_ATTACK_LEGKICK, "PunchRightLeg" },
 			{ AIBase.DecisionsWeight.AIDEC_MOVEMENT_WALK, "Walk" },
 			{ AIBase.DecisionsWeight.AIDEC_MOVEMENT_SPRINT, "Run" },
-			{ AIBase.DecisionsWeight.AIDEC_MOVEMENT_JUMP, "Jump" },
+			{ AIBase.DecisionsWeight.AIDEC_MOVEMENT_JUMP, "Jump" }
 		};
 		m_AnimationManager = new AnimationManager();
 		m_AnimationManager.Initialize( animatiorComponent, npcAnimations );
 		
-		SetCurrentState( NPCPawnBase.NPCBaseStates.NPCS_IDLE );
+		SetCurrentState( NPCPawnBase.NPCBaseStates.NPCS_FLYING );
 	}
 	
 	public override void Update ()
-	{
+	{	
 		switch( m_CurrentState )
 		{
 			case NPCBaseStates.NPCS_IDLE:
@@ -53,6 +54,9 @@ public class NPCMadMen : NPCPawnBase
 				break;
 			case NPCBaseStates.NPCS_ATTACKING:
 				UpdateAttacking();
+				break;
+			case NPCBaseStates.NPCS_FLYING:
+				UpdateFlying();
 				break;
 			case NPCBaseStates.NPCS_DYING:
 				UpdateDying();
@@ -77,6 +81,11 @@ public class NPCMadMen : NPCPawnBase
 				SetCurrentState( NPCPawnBase.NPCBaseStates.NPCS_MOVING );
 				return;
 			}
+			if( GetDistanceBetweenPlayerAndPawn() < m_Parameters.AttackDistance && isPawnLoockAtPlayer )
+			{
+				SetCurrentState( NPCPawnBase.NPCBaseStates.NPCS_ATTACKING );
+				return;
+			}
 		}
 	}
 	
@@ -85,8 +94,9 @@ public class NPCMadMen : NPCPawnBase
 	 	// Smoothly rotates towards target
 		bool isPawnLoockAtPlayer = RotatePawnToPlayer();
 		float distanceBetwenPlayerAndPawn = GetDistanceBetweenPlayerAndPawn();
-		if( distanceBetwenPlayerAndPawn < m_Parameters.AttackDistance - 2 )
+		if( distanceBetwenPlayerAndPawn < m_Parameters.AttackDistance )
 		{
+			m_AnimationManager.PlayAnimation( AIBase.DecisionsWeight.AIDEC_IDLE_STAND );
 			SetCurrentState( NPCPawnBase.NPCBaseStates.NPCS_ATTACKING );
 			return;
 		}
@@ -114,10 +124,14 @@ public class NPCMadMen : NPCPawnBase
 	{
 		RotatePawnToPlayer();
 		AIBase.DecisionsWeight pawnDecision = m_Brain.MakeDecision( m_CurrentState );
+		
+		//AlWays in attack stance
+		m_AnimationManager.PlayAnimation( AIBase.DecisionsWeight.AIDEC_ATTACK_STANCE );
+		
 		float distanceBetwenPlayerAndPawn = GetDistanceBetweenPlayerAndPawn();
 		if( distanceBetwenPlayerAndPawn > m_Parameters.AttackDistance )
 		{
-			SetCurrentState( NPCPawnBase.NPCBaseStates.NPCS_MOVING );
+			SetCurrentState( NPCPawnBase.NPCBaseStates.NPCS_IDLE );
 			return;
 		}
 		
@@ -139,12 +153,21 @@ public class NPCMadMen : NPCPawnBase
 	bool RotatePawnToPlayer()
 	{
 		Vector3 targetPoint = m_PlayerObject.transform.position;
-		Quaternion targetRotation = Quaternion.LookRotation(targetPoint - m_PawnObject.transform.position, Vector3.up);
+		Quaternion targetRotation = Quaternion.LookRotation( targetPoint - m_PawnObject.transform.position );
+		//Rotate only by Y axis
+		targetRotation.x = 0;
+		targetRotation.z = 0;
 		Quaternion oldRotation = m_PawnObject.transform.rotation;
-		m_PawnObject.transform.rotation = Quaternion.Slerp(m_PawnObject.transform.rotation, targetRotation, Time.deltaTime * 2.0f); 
+		m_PawnObject.transform.rotation = Quaternion.Slerp(m_PawnObject.transform.rotation, targetRotation, Time.deltaTime * 3.0f); 
 		
 		bool isPawnRotatedToPlayer = oldRotation == m_PawnObject.transform.rotation;
 		return isPawnRotatedToPlayer;
+	}
+	
+	void UpdateFlying()
+	{
+		m_AnimationManager.PlayAnimation( AIBase.DecisionsWeight.AIDEC_IDLE_STAND );
+		m_PawnObject.transform.position = m_PawnObject.transform.position + ( ( Vector3.down.normalized * 3.8f ) * Time.deltaTime );
 	}
 	
 	void SetCurrentState( NPCBaseStates state )

@@ -9,6 +9,7 @@ public abstract class NPCPawnBase
 		NPCS_IDLE,
 		NPCS_MOVING,
 		NPCS_ATTACKING,
+		NPCS_FLYING,
 		NPCS_DYING
 	}
 	
@@ -41,5 +42,10 @@ public abstract class NPCPawnBase
 	public float GetDistanceBetweenPlayerAndPawn()
 	{
 		return Vector3.Distance( m_PlayerObject.transform.position, m_PawnObject.transform.position );
+	}
+	
+	public GameObject GetPawnGameObject()
+	{
+		return m_PawnObject;
 	}
 }

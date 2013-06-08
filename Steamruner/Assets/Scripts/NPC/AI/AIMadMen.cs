@@ -26,9 +26,10 @@ public class AIMadMen : AIBase
 	public override DecisionsWeight MakeDecision( NPCState currentPawnState )
 	{
 		m_Neurons.NextDecisionTime -= Time.deltaTime;
-		if( m_Neurons.NextDecisionTime <= 0 )
+		if( m_Neurons.NextDecisionTime <= 0 || m_ForceDecision )
 		{
 			m_Neurons.NextDecisionTime = k_DecisionTime;
+			m_ForceDecision = false;
 			
 			switch( currentPawnState )
 			{

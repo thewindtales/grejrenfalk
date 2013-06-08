@@ -16,10 +16,9 @@ public class AnimationManager
 	public void PlayAnimation( AIBase.DecisionsWeight decisionAnimation )
 	{
 		StopAllAnimations();
-		AnimatorStateInfo inf = m_AnimatorController.GetCurrentAnimatorStateInfo( 0 );
+
 		if( m_Animations.ContainsKey( decisionAnimation ) )
 		{
-			Debug.Log( "Animation start: " + m_Animations[decisionAnimation] );
 			m_AnimatorController.SetBool( m_Animations[decisionAnimation], true );
 		}
 		else
