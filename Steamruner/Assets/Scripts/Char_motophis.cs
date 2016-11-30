@@ -19,7 +19,7 @@ public class Char_motophis : MonoBehaviour
 	void Start () 
 	{
 		Self=transform;
-		rigidbody.freezeRotation=true;//Нечего падать на бок
+		GetComponent<Rigidbody>().freezeRotation=true;//РќРµС‡РµРіРѕ РїР°РґР°С‚СЊ РЅР° Р±РѕРє
 	}
 	
 	void Update () 
@@ -35,12 +35,12 @@ public class Char_motophis : MonoBehaviour
 		{
 			if(Left)
 			{
-				//Если смотрели налево, то теперь поворачиваемся направо
+				//Р•СЃР»Рё СЃРјРѕС‚СЂРµР»Рё РЅР°Р»РµРІРѕ, С‚Рѕ С‚РµРїРµСЂСЊ РїРѕРІРѕСЂР°С‡РёРІР°РµРјСЃСЏ РЅР°РїСЂР°РІРѕ
 				Left=false;
 				Self.rotation=Quaternion.Euler (new Vector3(0,0,0));
 			}
-			Vector3 forw =new Vector3 (0,rigidbody.velocity.y,in_walk);
-			rigidbody.velocity=forw;
+			Vector3 forw =new Vector3 (0,GetComponent<Rigidbody>().velocity.y,in_walk);
+			GetComponent<Rigidbody>().velocity=forw;
 		}
 		if(in_walk<0)
 		{
@@ -49,8 +49,8 @@ public class Char_motophis : MonoBehaviour
 				Left=true;
 				Self.rotation=Quaternion.Euler(new Vector3(0,180,0));
 			}
-			Vector3 back =new Vector3 (0,rigidbody.velocity.y,in_walk);
-			rigidbody.velocity= back;
+			Vector3 back =new Vector3 (0,GetComponent<Rigidbody>().velocity.y,in_walk);
+			GetComponent<Rigidbody>().velocity= back;
 		}
 	}
 	

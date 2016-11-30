@@ -10,7 +10,7 @@ public class Animatrix : MonoBehaviour
 {
 	private Animator anim;
 	
-	//публятня
+	//РїСѓР±Р»СЏС‚РЅСЏ
 	
 	public bool Jump=false;
 	public bool Sprint = false;
@@ -27,7 +27,7 @@ public class Animatrix : MonoBehaviour
 	{
 		anim=GetComponent<Animator>();
 		Self=transform;
-		rigidbody.freezeRotation=true;//Нечего падать на бок
+		GetComponent<Rigidbody>().freezeRotation=true;//РќРµС‡РµРіРѕ РїР°РґР°С‚СЊ РЅР° Р±РѕРє
 	}
 	
 
@@ -71,12 +71,12 @@ public class Animatrix : MonoBehaviour
 		{
 			if(Left)
 			{
-				//Если смотрели налево, то теперь поворачиваемся направо
+				//Р•СЃР»Рё СЃРјРѕС‚СЂРµР»Рё РЅР°Р»РµРІРѕ, С‚Рѕ С‚РµРїРµСЂСЊ РїРѕРІРѕСЂР°С‡РёРІР°РµРјСЃСЏ РЅР°РїСЂР°РІРѕ
 				Left=false;
 				Self.rotation=Quaternion.Euler (new Vector3(0,0,0));
 			}
-			Vector3 forw =new Vector3 (0,rigidbody.velocity.y,InWalk);
-			rigidbody.velocity=forw;
+			Vector3 forw =new Vector3 (0,GetComponent<Rigidbody>().velocity.y,InWalk);
+			GetComponent<Rigidbody>().velocity=forw;
 		}
 		if(InWalk<0)
 		{
@@ -85,8 +85,8 @@ public class Animatrix : MonoBehaviour
 				Left=true;
 				Self.rotation=Quaternion.Euler(new Vector3(0,180,0));
 			}
-			Vector3 back =new Vector3 (0,rigidbody.velocity.y,InWalk);
-			rigidbody.velocity= back;
+			Vector3 back =new Vector3 (0,GetComponent<Rigidbody>().velocity.y,InWalk);
+			GetComponent<Rigidbody>().velocity= back;
 		}
 	}
 }

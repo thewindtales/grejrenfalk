@@ -38,8 +38,8 @@ public class Player_stat : Stat
 				Closes.transform.parent=RightArm.transform;
 				Closes.transform.position=RightArm.transform.position;
 				Closes.transform.rotation=Quaternion.Euler (0,0,0);
-				Closes.rigidbody.isKinematic = true;
-				Closes.collider.isTrigger = true;
+				Closes.GetComponent<Rigidbody>().isKinematic = true;
+				Closes.GetComponent<Collider>().isTrigger = true;
 				InHands = Closes;
 				EmptyHand=false;
 			}
@@ -50,9 +50,9 @@ public class Player_stat : Stat
 		if(!EmptyHand)
 		{
 			InHands.transform.parent=null;
-			Closes.rigidbody.isKinematic = false;
-			Closes.rigidbody.AddForce (Vector3.forward * 1000);
-			Closes.collider.isTrigger = false;
+			Closes.GetComponent<Rigidbody>().isKinematic = false;
+			Closes.GetComponent<Rigidbody>().AddForce (Vector3.forward * 1000);
+			Closes.GetComponent<Collider>().isTrigger = false;
 			EmptyHand = true;
 		}
 	}
