@@ -1,9 +1,7 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2015
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Steamruner.CSharp.Plugins", "Steamruner.CSharp.Plugins.csproj", "{D487BA39-F65C-609A-936E-E458AB4E5C7F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Steamruner.CSharp", "Steamruner.CSharp.csproj", "{39730EEE-B6DE-7DC7-CA15-0F912BF8EE68}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{26F85CEE-ADC5-51AA-63E9-AD150785BA9F}") = "Steamruner", "Assembly-CSharp.csproj", "{013F6D3F-8DA2-7E04-F83E-D47B1C2A4FB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,16 +9,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D487BA39-F65C-609A-936E-E458AB4E5C7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D487BA39-F65C-609A-936E-E458AB4E5C7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D487BA39-F65C-609A-936E-E458AB4E5C7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D487BA39-F65C-609A-936E-E458AB4E5C7F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{39730EEE-B6DE-7DC7-CA15-0F912BF8EE68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{39730EEE-B6DE-7DC7-CA15-0F912BF8EE68}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{39730EEE-B6DE-7DC7-CA15-0F912BF8EE68}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{39730EEE-B6DE-7DC7-CA15-0F912BF8EE68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{013F6D3F-8DA2-7E04-F83E-D47B1C2A4FB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{013F6D3F-8DA2-7E04-F83E-D47B1C2A4FB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{013F6D3F-8DA2-7E04-F83E-D47B1C2A4FB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{013F6D3F-8DA2-7E04-F83E-D47B1C2A4FB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
 	EndGlobalSection
 EndGlobal
