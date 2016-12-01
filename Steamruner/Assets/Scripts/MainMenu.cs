@@ -18,7 +18,7 @@ public class MainMenu : MonoBehaviour
 		if(GUI.Button(new Rect(Screen.width/2-NewGame.width/2,Screen.height/2-NewGame.height,NewGame.width,NewGame.height),NewGame))
 		{
 			Debug.Log ("New game selected");
-			Application.LoadLevel ("GameScene1");
+			Application.LoadLevel ("GameScene1a");
 		};
 		if(GUI.Button (new Rect(Screen.width/2-Options.width/2,Screen.height/2,Options.width,Options.height),Options))
 		{
